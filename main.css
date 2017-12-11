@@ -2,8 +2,11 @@ html {
   height: 100vh; }
 
 html, body {
-  width: 100%;
-  height: 100%; }
+  height: 100%;
+  width: 100%; }
+  @media (max-width: 600px) {
+    html, body {
+      font-size: 12px; } }
 
 html body {
   background-image: radial-gradient(#102a44 0%, black 100%); }
@@ -29,10 +32,8 @@ html body {
     background-color: rgba(124, 179, 207, 0.1); }
     @media (max-width: 600px) {
       .flex-container .flex-container--inner {
-        height: 40em;
-        width: 40em;
-        color: red;
-        background-color: red; } }
+        height: auto;
+        width: 75%; } }
     .flex-container .flex-container--inner h1 {
       font-family: 'Raleway', sans-serif;
       font-weight: 900;
@@ -44,9 +45,5 @@ html body {
       font-family: 'Playfair Display';
       font-style: italic;
       font-weight: 400; }
-
-@media only screen and (max-width: 650px) {
-  .flex-container .flex-container--inner {
-    background-color: red; } }
 
 /*# sourceMappingURL=main.css.map */

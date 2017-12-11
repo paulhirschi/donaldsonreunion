@@ -8,10 +8,15 @@ $accent: rgb(139, 195, 74);
 }
 @mixin title-font {font-family: 'Raleway', sans-serif;}
 @mixin accent-font {font-family: 'Playfair Display'; font-style: italic; font-weight: 400;}
-@mixin height-width($size) {height: $size; width: $size}
+@mixin height-width($height, $width) {height: $height; width: $width}
 
 html {height: 100vh;}
-html, body {width: 100%; height: 100%;}
+html, body {
+  @include height-width(100%, 100%);
+  @include breakpoint(600px) {
+    font-size: 12px;
+  }
+}
 
 html body {
   background-image: radial-gradient($medium 0%, $dark 100%);
@@ -33,14 +38,12 @@ html body {
     justify-content: center;
     // text-align: center;
     color: $light;
-    @include height-width(20em);
+    @include height-width(20em, 20em);
     padding: 2em;
     border-radius: 1em;
     background-color: rgba(darken($light, 30%), 0.1);
     @include breakpoint(600px) {
-      @include height-width(40em);
-      color: red;
-      background-color: red;
+      @include height-width(auto, 75%);
     }
     h1 {
       @include title-font;
@@ -56,10 +59,3 @@ html body {
     }
   }
 }
-
-@media only screen and (max-width: 650px) {
-  .flex-container .flex-container--inner {
-    background-color: red;
-  }
-}
-
