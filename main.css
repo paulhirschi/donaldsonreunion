@@ -9,10 +9,13 @@ html, body {
       font-size: 12px; } }
 
 html body {
-  background-image: radial-gradient(#102a44 0%, black 100%); }
+  background-image: radial-gradient(#153759 0%, black 100%); }
 
 .accent {
   color: #8bc34a; }
+
+.small {
+  font-size: 0.85em; }
 
 .flex-container {
   display: flex;
@@ -28,9 +31,9 @@ html body {
     height: 20em;
     width: 20em;
     padding: 2em;
-    border-radius: 1em;
-    background-color: rgba(124, 179, 207, 0.1);
-    background-color: rgba(0, 0, 0, 0.1); }
+    border-radius: 1em; }
+    .flex-container .flex-container--inner img {
+      width: 10em; }
     @media (max-width: 600px) {
       .flex-container .flex-container--inner {
         height: auto;
@@ -40,7 +43,7 @@ html body {
       font-weight: 900;
       margin: 0;
       text-align: center; }
-      .flex-container .flex-container--inner h1 span.small {
+      .flex-container .flex-container--inner h1 span.thin {
         font-weight: 100; }
     .flex-container .flex-container--inner p {
       font-family: 'Playfair Display';

@@ -19,11 +19,15 @@ html, body {
 }
 
 html body {
-  background-image: radial-gradient($medium 0%, $dark 100%);
+  background-image: radial-gradient(lighten($medium, 5%) 0%, $dark 100%);
 }
 
 .accent {
   color: $accent;
+}
+
+.small {
+  font-size: 0.85em;
 }
 
 .flex-container {
@@ -32,6 +36,7 @@ html body {
   align-items: center;
   justify-content: center;
   .flex-container--inner {
+    img {width: 10em;}
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,8 +46,6 @@ html body {
     @include height-width(20em, 20em);
     padding: 2em;
     border-radius: 1em;
-    background-color: rgba(darken($light, 30%), 0.1);
-    background-color: rgba($dark, 0.1);
     @include breakpoint(600px) {
       @include height-width(auto, 75%);
     }
@@ -51,7 +54,7 @@ html body {
       font-weight: 900;
       margin: 0;
       text-align: center;
-      span.small {
+      span.thin {
         font-weight: 100;
       }
     }
