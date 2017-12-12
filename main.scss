@@ -42,6 +42,7 @@ html body {
     padding: 2em;
     border-radius: 1em;
     background-color: rgba(darken($light, 30%), 0.1);
+    background-color: rgba($dark, 0.1);
     @include breakpoint(600px) {
       @include height-width(auto, 75%);
     }

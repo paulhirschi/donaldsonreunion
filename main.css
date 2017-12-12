@@ -29,7 +29,8 @@ html body {
     width: 20em;
     padding: 2em;
     border-radius: 1em;
-    background-color: rgba(124, 179, 207, 0.1); }
+    background-color: rgba(124, 179, 207, 0.1);
+    background-color: rgba(0, 0, 0, 0.1); }
     @media (max-width: 600px) {
       .flex-container .flex-container--inner {
         height: auto;
