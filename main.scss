@@ -1,34 +1,56 @@
-$dark: rgb(0, 0, 0);
-$medium: rgb(16, 42, 68);
-$light: rgb(236, 244, 248);
-$accent: rgb(139, 195, 74);
+$dark: hsla(0, 0%, 0%, 1.00);
+$medium: hsla(210, 62%, 16%, 1.00);
+$light: hsla(200, 46%, 95%, 1.00);
+
+$green: hsla(88, 50%, 53%, 1.00);
+$leaf-green: hsla(146, 42%, 42%, 1.00);
+$yellow: hsla(67, 56%, 59%, 1.00);
+$blue: hsla(200, 56%, 33%, 1.00);
+$light-blue: hsla(197, 51%, 47%, 1.00);
 
 @mixin breakpoint($breakpoint) {
   @media (max-width: $breakpoint) { @content; }
 }
 @mixin title-font {font-family: 'Raleway', sans-serif;}
-@mixin accent-font {font-family: 'Playfair Display'; font-style: italic; font-weight: 400;}
+@mixin accent-font {font-family: 'Quicksand';}
 @mixin height-width($height, $width) {height: $height; width: $width}
 
-html {height: 100vh;}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+* {box-sizing: border-box;}
+
+html {background-color: $green; margin: 0; padding: 0;}
 html, body {
   @include height-width(100%, 100%);
   color: $light;
   @include breakpoint(600px) {
-    font-size: 15px;
+    font-size: 13px;
   }
 }
 
 html body {
   background-image: radial-gradient(lighten($medium, 5%) 0%, $dark 100%);
+  @include accent-font;
+  margin: 0;
+  padding: 0;
 }
 
-.accent {
-  color: $accent;
-}
+.green {color: $green;}
+.blue {color: $blue;}
+.yellow {color: $yellow;}
+.light-blue {color: $light-blue}
 
-.small {
-  font-size: 0.85em;
+.small {font-size: 0.85em;}
+
+.bold {font-weight: 700;}
+
+hr {
+  width: 100%;
+  color: $green;
+  border-style: solid;
 }
 
 .flex-container {
@@ -37,24 +59,34 @@ html body {
   align-items: center;
   justify-content: center;
   .flex-container--inner {
-    img {width: 10em;}
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     // text-align: center;
     color: $light;
-    @include height-width(20em, 20em);
+    @include height-width(20em, 30em);
     padding: 2em;
     border-radius: 1em;
     @include breakpoint(600px) {
-      @include height-width(auto, 75%);
+      @include height-width(auto, 95%);
     }
+    // .first-animation, .second-animation {opacity: 0;}
+    // .first-animation {
+    //   animation: fadeIn 1s linear 1s forwards;
+    // }
+    // .second-animation {
+    //   animation: fadeIn 1s linear 2s forwards;
+    // }
     h1 {
       @include title-font;
+      letter-spacing: 1.5px;
       font-weight: 900;
       margin: 0;
       text-align: center;
+      @include breakpoint(400px) {
+        font-size: 1.75em;
+      }
       span.thin {
         font-weight: 100;
       }
@@ -62,6 +94,102 @@ html body {
     h3 {
       @include accent-font;
       font-weight: 400;
+      font-style: italic;
+      margin-top: 2em;
+      color: $light-blue;
+      text-align: center;
+      font-size: 0.95em;
     }
   }
 }
+
+.tree {
+  width: 10em;
+  display: block;
+  margin: 0 auto;
+  @include breakpoint(600px) {
+    width: 7em;
+  }
+}
+
+table {
+  margin-top: 0.85em;
+  font-size: 1.05em;
+  caption {
+    text-align: left;
+    caption-side: bottom;
+    margin-top: 1em;
+  }
+  thead {
+  }
+  tbody {
+    tr {
+      th, td {
+        padding-bottom: 1em;
+      }
+      th {
+        @include title-font;
+        padding-right: 0.85em;
+        vertical-align: top;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        text-align: right;
+      }
+      td {
+        @include accent-font;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+#map {
+  @include height-width(200px, 100%);
+  @include breakpoint(500px) {
+    height: 150px;
+  }
+}
+.map-directions {
+  text-align: right;
+  margin-top: 1em;
+  a {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid $yellow;
+    color: $light;
+    padding: 0.5em;
+    border-radius: 5px;
+    &:hover {
+      transform: scale(1.1);
+      transition-duration: 0.3s;
+    }
+    img {
+      width: 25px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.table-flex {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.85em;
+  div {
+    padding: 0 0.5em;
+  }
+  .left {
+    font-size: 2em;
+    vertical-align: top;
+  }
+  .right {
+    font-style: italic;
+  }
+}
+
+// @for $i from 1 through 3 {
+//   .header-#{$i} {
+//     color: hsl($i * 100, 70, 50)
+//   }
+// }

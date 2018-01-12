@@ -4,16 +4,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>Donalson Family</title>
+  <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,700|Raleway:100,900" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i|Raleway:100,900" rel="stylesheet">
 </head>
 <body>
   <div class="flex-container">
     <div class="flex-container--inner">
-      <img src="tree.svg">
-      <h1>DONALDSON<span class="thin">REUNION</span><br><span class="accent thin small">- 2018 -</span></h1>
-      <h3>Info coming soon...</h3>
+      <div class="first-animation">
+        <img src="tree.svg" class="tree">
+        <h1><span class="green">2018</span><br>DONALDSON<span class="thin">REUNION</span></h1>
+        <hr>
+      </div>
+      <div class="second-animation">
+        <table>
+          <thead>
+            <th></th><th></th>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="header-1">Date</th>
+              <td>June 23</td>
+            </tr>
+            <tr>
+              <th class="header-2">Time</th>
+              <td>Elevenish - Threeish<br><span class="yellow">Lunch at Noon</span></td>
+            </tr>
+            <tr>
+              <th class="header-3">Place</th>
+              <td>Kaysville East Stake Center<br><span class="yellow">201 S 600 E, Kaysville, UT 84037</span></td>
+            </tr>
+          </tbody>
+          <!-- <caption>
+            <div class="table-flex">
+              <div class="left">
+                <span class="light-blue">&rarr;</span> 
+              </div>
+              <div class="right">
+                The venue is scheduled, but subject to change based on needs from the Stake
+              </div>
+            </div>
+          </caption> -->
+        </table>
+        <div id="map"></div>
+        <div class="map-directions">
+          <a href="https://www.google.com/maps/dir//201+S+600+E,+Kaysville,+UT+84037/@41.031286,-111.9265856,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x8752fe2165c2ac33:0xa7ab05f9b69226fc!2m2!1d-111.9243969!2d41.031286" target="_blank"><img src="compass.svg" alt="Get Directions">&nbsp;&nbsp;Get Directions</a>
+        </div>
+        <h3>more info coming soon...</h3>
+      </div>
     </div>
   </div>
+  <script>
+    function initMap() {
+      var uluru = {lat: 41.031513, lng: -111.924354};
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: uluru
+      });
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: map
+      });
+    }
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxU945mKNy5-lURobUUPsvXS6phNLp89A&callback=initMap">
+  </script>
 </body>
 </html>
