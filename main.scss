@@ -22,20 +22,33 @@ $light-blue: hsla(197, 51%, 47%, 1.00);
 
 * {box-sizing: border-box;}
 
-html {background-color: $green; margin: 0; padding: 0;}
+html {
+  background-color: $green;
+  margin: 0;
+  padding: 0;
+}
 html, body {
   @include height-width(100%, 100%);
   color: $light;
+}
+
+html body {
+  @include accent-font;
+  margin: 0;
+  padding: 0;
   @include breakpoint(600px) {
     font-size: 13px;
   }
 }
 
-html body {
+.background {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   background-image: radial-gradient(lighten($medium, 5%) 0%, $dark 100%);
-  @include accent-font;
-  margin: 0;
-  padding: 0;
+  z-index: -100;
 }
 
 .green {color: $green;}
@@ -70,6 +83,8 @@ hr {
     border-radius: 1em;
     @include breakpoint(600px) {
       @include height-width(auto, 95%);
+      padding: 1em;
+      padding-top: 3em;
     }
     // .first-animation, .second-animation {opacity: 0;}
     // .first-animation {
@@ -109,6 +124,9 @@ hr {
   margin: 0 auto;
   @include breakpoint(600px) {
     width: 7em;
+  }
+  @include breakpoint(400px) {
+    display: none;
   }
 }
 
